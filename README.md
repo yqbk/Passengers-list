@@ -50,4 +50,4 @@ yarn start
 
 ## Images
 
-![passenger list empty](</tree/master/test%20images/screens/Passenger%20List%20Default%20(Logged%20in%20state).png>)
+![passenger list empty](<https://github.com/Awaymo/react-native-technical-test/blob/master/test%20images/screens/Passenger%20List%20Default%20(Logged%20in%20state).png>)
