@@ -6,8 +6,6 @@ The object of this test is to create a passengers list for a flights provider co
 
 Clone this repository in your local machine.
 
-It is recommended that all the work is done on a separate branch created by the candidate, including all the labelled commits.
-
 ### Prerequisites
 
 make sure you have _yarn_ installed in your machine
@@ -47,7 +45,7 @@ yarn start
 - use **react-thunk** to make the call to the api
 - use **react-navigation** to navigate between screens
 
-## Images
+## Screen designs
 
 ![passenger list empty](<https://github.com/Awaymo/react-native-technical-test/blob/master/test%20images/screens/small/Passenger%20List%20Default%20(Logged%20in%20state).png>)
 
