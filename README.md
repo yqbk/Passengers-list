@@ -32,7 +32,7 @@ yarn start
 
 - Create 2 screens, **passenger list** and **add passenger form**, following the designs supplied
 - populate the first passenger with the information from this api call:
-  - link to the get passenger info api call
+  - https://functionapp20180527095701.azurewebsites.net/api/GetUserTravellerInfo
 - when clicking on a plus button navigate to the form screen
 - when clicking complete on the form screen navigate back to the passengers list screen with the new passenger populated
 - the solution should use the REDUX store, actions and reducers to manage the state
