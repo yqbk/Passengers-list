@@ -4,10 +4,9 @@ The object of this test is to create a passengers list for a flights provider co
 
 ## Getting Started
 
-Get the template from the following repository:
-[technical test](https://github.com/Awaymo/react-native-technical-test)
+Clone this repository in your local machine.
 
-It is recommended that all the work is done on a separate branch created by the candidate, including all the labelled commits
+It is recommended that all the work is done on a separate branch created by the candidate, including all the labelled commits.
 
 ### Prerequisites
 
