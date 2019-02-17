@@ -1,6 +1,4 @@
-import {
-    StyleSheet
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     passengerContainer: {
@@ -22,7 +20,7 @@ export default StyleSheet.create({
         borderColor: '#00b1e8',
         alignItems: 'center',
         justifyContent: 'center',
-        opacity: 0.6
+        opacity: 0.6,
     },
 
     plus: {
@@ -54,6 +52,6 @@ export default StyleSheet.create({
     arrow: {
         fontSize: 16,
         fontWeight: 'bold',
-        paddingHorizontal: 20
-    }
+        paddingHorizontal: 20,
+    },
 });

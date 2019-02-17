@@ -1,6 +1,4 @@
-import {
-    StyleSheet
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     passengerContainer: {
@@ -21,7 +19,7 @@ export default StyleSheet.create({
         borderColor: 'green',
         alignItems: 'center',
         justifyContent: 'center',
-        opacity: 0.6
+        opacity: 0.6,
     },
 
     avatarImage: {
@@ -40,13 +38,13 @@ export default StyleSheet.create({
         backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
-        opacity: 0.7
+        opacity: 0.7,
     },
 
     editButton: {
         color: 'white',
         fontSize: 14,
         fontWeight: 'bold',
-        paddingHorizontal: 20
-    }
+        paddingHorizontal: 20,
+    },
 });
