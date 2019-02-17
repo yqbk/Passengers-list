@@ -20,7 +20,6 @@ export default StyleSheet.create({
         borderColor: '#00b1e8',
         alignItems: 'center',
         justifyContent: 'center',
-        opacity: 0.6,
     },
 
     plus: {

@@ -19,7 +19,6 @@ export default StyleSheet.create({
         borderColor: 'green',
         alignItems: 'center',
         justifyContent: 'center',
-        opacity: 0.6,
     },
 
     avatarImage: {

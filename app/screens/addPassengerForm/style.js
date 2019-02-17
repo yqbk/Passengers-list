@@ -6,4 +6,12 @@ export default StyleSheet.create({
         fontSize: 12,
         paddingVertical: 10,
     },
+
+    headerWhite: {
+        fontWeight: '600',
+        fontSize: 12,
+        paddingVertical: 10,
+        color: 'white',
+        paddingLeft: 20,
+    },
 });
