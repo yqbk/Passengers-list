@@ -11,7 +11,7 @@ export default createStackNavigator(
             navigationOptions: {
                 headerTitle: "WHO'S TRAVELLING?",
                 headerTitleStyle: styles.headerTitleStyle,
-                headerStyle: styles.headerStyle,
+                headerStyle: styles.redHeaderStyle,
             },
         },
 
