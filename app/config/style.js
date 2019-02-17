@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#566ada',
     },
 
-    headerStyle: {
+    redHeaderStyle: {
         backgroundColor: '#ff5243',
 
         shadowColor : '#ff5243',
