@@ -5,8 +5,17 @@ import { Text, StatusBar, View, FlatList, ScrollView, TextInput } from 'react-na
 
 import styles from './style';
 import TravellerToChoose from '../../components/components/travellerToChoose/TravellerToChoose';
+import NavigationButton from '../../components/components/navigationButton/NavigationButton';
 
-const avatarImage = require('./doge.png');
+// const avatarImage = require('../../../test_images/avatars/alien.png');
+// const avatarImage = require('../../../test_images/avatars/black_guy.png');
+
+const mockedData = [
+    { name: 'Timothy D.', avatarImage: require('../../../test_images/avatars/johnny.png'), passportId: '123' },
+    { name: 'Josep A.', avatarImage: require('../../../test_images/avatars/dinosaur.png'), passportId: '456' },
+    { name: 'Philippe S.', avatarImage: require('../../../test_images/avatars/bald_guy.png'), passportId: '567' },
+    { name: 'Nicklas H.', avatarImage: require('../../../test_images/avatars/black_guy.png'), passportId: '890' },
+];
 
 class AddPassengerForm extends Component {
     constructor(props) {
@@ -37,19 +46,22 @@ class AddPassengerForm extends Component {
                         backgroundColor: '#ff5243',
                     }}
                 >
+                    <View style={styles.topNavigation}>
+                        <NavigationButton text={'◀'} onPress={() => navigation.goBack()} />
+                        <Text style={styles.navigationHeader}>ENTER TRAVELLER</Text>
+                        <NavigationButton text={'Done'} />
+                    </View>
+
                     <Text style={styles.headerWhite}>Choose from friends, or add new traveller</Text>
                     <FlatList
                         horizontal={true}
                         keyExtractor={this._keyExtractor}
-                        data={[
-                            { passenger: 'Timothy 1.', avatarImage: avatarImage, passportId: '123' },
-                            { passenger: 'Timothy 2.', avatarImage: avatarImage, passportId: '456' },
-                            { passenger: 'Timothy 3.', avatarImage: avatarImage, passportId: '567' },
-                            { passenger: 'Timothy 4.', avatarImage: avatarImage, passportId: '890' },
-                        ]}
-                        renderItem={({ passenger, avatar }) => (
-                            <TravellerToChoose passenger={passenger} avatarImage={avatarImage} />
-                        )}
+                        data={mockedData}
+                        // data={[{ key: 'a' }, { key: 'b' }]}
+                        renderItem={({ item }) => {
+                            console.log(item);
+                            return <TravellerToChoose passenger={item} avatarImage={item.avatarImage} onPress={() => navigation.goBack()} />;
+                        }}
                     />
                 </View>
 
@@ -61,12 +73,7 @@ class AddPassengerForm extends Component {
                     }}
                 >
                     <Text style={styles.header}>Add New Traveller</Text>
-                    <TextInput
-                        style={styles.textInput}
-                        onChangeText={title => this.setState({ title })}
-                        value={this.state.title}
-                        placeholder={'Title'}
-                    />
+                    <TextInput style={styles.textInput} onChangeText={title => this.setState({ title })} value={this.state.title} placeholder={'Title'} />
                     <TextInput
                         style={styles.textInput}
                         onChangeText={firstName => this.setState({ firstName })}

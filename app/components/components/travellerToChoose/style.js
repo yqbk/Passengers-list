@@ -24,15 +24,15 @@ export default StyleSheet.create({
     },
 
     avatarImage: {
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
     },
 
     passengerTextStyle: {
         paddingTop: 5,
         color: 'white',
         fontSize: 10,
-    }
+    },
 
     // passengerDetails: {
     //     flex: 1,

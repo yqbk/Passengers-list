@@ -51,6 +51,7 @@ export default StyleSheet.create({
     arrow: {
         fontSize: 16,
         fontWeight: 'bold',
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
+        opacity: 0.7,
     },
 });
