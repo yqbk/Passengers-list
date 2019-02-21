@@ -10,12 +10,39 @@ import TravellerToChoose from '../../components/components/travellerToChoose/Tra
 import NavigationButton from '../../components/components/navigationButton/NavigationButton';
 
 const mockedData = [
-    { title: 'Mr', firstName: 'Timothy D.', avatarImage: require('../../../test_images/avatars/johnny.png'), passportId: '123' },
-    { title: 'Mr', firstName: 'Josep A.', avatarImage: require('../../../test_images/avatars/dinosaur.png'), passportId: '456' },
-    { title: 'Mr', firstName: 'Philippe S.', avatarImage: require('../../../test_images/avatars/bald_guy.png'), passportId: '567' },
-    { title: 'Mr', firstName: 'Nicklas H.', avatarImage: require('../../../test_images/avatars/black_guy.png'), passportId: '890' },
+    {
+        title: 'Mr',
+        firstName: 'Timothy',
+        lastName: 'D.',
+        dateOfBirth: '1999-01-01',
+        avatarImage: require('../../../test_images/avatars/johnny.png'),
+        passportId: '123',
+    },
+    {
+        title: 'Mr',
+        firstName: 'Josep',
+        lastName: 'A.',
+        dateOfBirth: '1999-01-01',
+        avatarImage: require('../../../test_images/avatars/dinosaur.png'),
+        passportId: '456',
+    },
+    {
+        title: 'Mr',
+        firstName: 'Philippe',
+        lastName: 'S.',
+        dateOfBirth: '1999-01-01',
+        avatarImage: require('../../../test_images/avatars/bald_guy.png'),
+        passportId: '567',
+    },
+    {
+        title: 'Mr',
+        firstName: 'Nicklas',
+        lastName: 'H.',
+        dateOfBirth: '1999-01-01',
+        avatarImage: require('../../../test_images/avatars/black_guy.png'),
+        passportId: '890',
+    },
 ];
-
 class AddPassengerForm extends Component {
     constructor(props) {
         super(props);
@@ -33,8 +60,8 @@ class AddPassengerForm extends Component {
     _keyExtractor = (item, index) => item.passportId;
 
     handleAddPassenger = passenger => {
-        this.props.addPassenger(passenger);
-
+        console.log('this.props.navigation.state.params', this.props.navigation.state.params);
+        this.props.addPassenger(passenger, this.props.navigation.state.params.passengersIndex);
         this.props.navigation.goBack();
     };
 
@@ -63,7 +90,6 @@ class AddPassengerForm extends Component {
                         keyExtractor={this._keyExtractor}
                         data={mockedData}
                         renderItem={({ item }) => {
-                            // console.log('0 :', item);
                             return <TravellerToChoose passenger={item} avatarImage={item.avatarImage} onPress={() => this.handleAddPassenger(item)} />;
                         }}
                     />

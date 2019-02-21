@@ -1,32 +1,25 @@
 import { ADD_PASSENGER } from '../actions/passengersActions';
 
 const initialState = {
-    passengers: [],
+    passengers: [null, null, null],
     errorMessage: '',
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case ADD_PASSENGER: {
+            console.log(action);
             return {
                 ...state,
-                passengers: [...state.passengers, action.payload],
+                passengers: state.passengers.reduce((acc, curr, index) => {
+                    if (index === action.payload.passengerIndex) {
+                        return [...acc, action.payload.passenger];
+                    } else {
+                        return [...acc, curr];
+                    }
+                }, []),
             };
         }
-
-        // Later on probably data would be sent to backend, I will keep it here for further development
-
-        // case ADD_PASSENGER_SUCCESS:
-        //     return {
-        //         ...state,
-        //         traveller: action.payload,
-        //     };
-
-        // case ADD_PASSENGER_FAILURE:
-        //     return {
-        //         ...state,
-        //         errorMessage: action.payload,
-        //     };
 
         default:
             return state;

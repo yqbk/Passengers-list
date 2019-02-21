@@ -28,9 +28,13 @@ class PassengerList extends Component {
         const { navigation, passengers } = this.props;
 
         return passengers[passengersIndex] ? (
-            <Passenger avatarImage={mockedAvatars[passengersIndex]} data={passengers[passengersIndex]} key={passengersIndex} />
+            <Passenger avatarImage={passengers[passengersIndex].avatarImage} data={passengers[passengersIndex]} key={passengersIndex} />
         ) : (
-            <EmptyPassenger avatarImage={avatarImage} onPress={() => navigation.navigate('AddPassenger')} key={passengersIndex} />
+            <EmptyPassenger
+                avatarImage={avatarImage}
+                onPress={() => navigation.navigate('AddPassenger', { passengersIndex: passengersIndex })}
+                key={passengersIndex}
+            />
         );
     };
 
