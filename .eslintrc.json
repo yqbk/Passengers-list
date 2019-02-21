@@ -1,20 +1,33 @@
 {
-  "extends": "airbnb",
   "parser": "babel-eslint",
-  "env": {
-    "browser": true
-  },
-  "plugins": ["react"],
+
+  "extends": [
+    "airbnb",
+    "standard",
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react",
+    "prettier/standard"
+  ],
+
+  "plugins": ["flowtype", "react", "prettier", "standard", "react-native"],
+
   "rules": {
-    "react/jsx-filename-extension": [
-      2,
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ],
-    "react/forbid-prop-types": [0],
-    "react/require-default-props": [0],
-    "global-require": [0],
-    "semi": [2, "never"]
+    "react/jsx-filename-extension": 0,
+    "no-shadow": "off",
+    "max-len": [1, 120],
+    "arrow-body-style": "off",
+    "import/prefer-default-export": "off",
+    "react/forbid-prop-types": "off",
+    "react/prefer-stateless-function": "off",
+    "no-nested-ternary": "off",
+    "prettier/prettier": "error",
+    "no-console": "off",
+    "react-native/no-unused-styles": 2,
+    "react/no-did-update-set-state": "off",
+    "no-param-reassign": "off",
+    "handle-callback-err": "off"
   }
 }
