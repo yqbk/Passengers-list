@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Passenger from '../../components/components/passenger/Passenger';
-import EmptyPassenger from '../../components/components/emptyPassenger/EmptyPassanger';
 import { Text, StatusBar, View, FlatList, ScrollView, TextInput } from 'react-native';
 import { addPassenger } from '../../actions/passengersActions';
 

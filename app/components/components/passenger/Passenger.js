@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import styles from './style';
 
-const Passenger = ({ avatarImage, data }) => {
-    // console.log('data = ', data)
-    return (
-        <View style={styles.passengerContainer}>
-            <View style={styles.avatar}>
-                <Image source={avatarImage || require('../../../../test_images/avatars/alien.png')} style={styles.avatarImage} />
-            </View>
+const defaultAvatarImage = require('../../../../test_images/avatars/alien.png');
+const editText = 'Edit';
 
-            <View style={styles.passengerDetails}>
-                <Text>{data ? `${data.firstName} ${data.lastName}` : 'Error'}</Text>
-                <Text>{data ? `${data.title}, ${data.dateOfBirth}` : 'Error'}</Text>
-            </View>
-
-            <TouchableOpacity onPress={() => console.log('To be implemented.')} style={styles.editButtonContainer}>
-                <Text style={styles.editButton}>Edit</Text>
-            </TouchableOpacity>
+const Passenger = ({ avatarImage, data }) => (
+    <View style={styles.passengerContainer}>
+        <View style={styles.avatar}>
+            <Image source={avatarImage || defaultAvatarImage} style={styles.avatarImage} />
         </View>
-    );
+
+        <View style={styles.passengerDetails}>
+            <Text>{data ? `${data.firstName} ${data.lastName}` : 'Error'}</Text>
+            <Text>{data ? `${data.title}, ${data.dateOfBirth}` : 'Error'}</Text>
+        </View>
+
+        <TouchableOpacity onPress={() => console.log('To be implemented.')} style={styles.editButtonContainer}>
+            <Text style={styles.editButton}>{editText}</Text>
+        </TouchableOpacity>
+    </View>
+);
+
+Passenger.propTypes = {
+    avatarImage: PropTypes.number.isRequired,
+    data: PropTypes.object.isRequired,
 };
 
 export default Passenger;

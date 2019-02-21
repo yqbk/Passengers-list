@@ -3,10 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     travellerContainer: {
         flex: 0,
-        // flexDirection: 'column',
         borderColor: 'black',
-        // paddingVertical: 20,
-        // height: 80,
         alignItems: 'center',
         justifyContent: 'center',
         paddingLeft: 20,
@@ -33,25 +30,4 @@ export default StyleSheet.create({
         color: 'white',
         fontSize: 10,
     },
-
-    // passengerDetails: {
-    //     flex: 1,
-    //     paddingHorizontal: 20,
-    // },
-
-    // editButtonContainer: {
-    //     height: 30,
-    //     borderRadius: 5,
-    //     backgroundColor: 'red',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     opacity: 0.7,
-    // },
-
-    // editButton: {
-    //     color: 'white',
-    //     fontSize: 14,
-    //     fontWeight: 'bold',
-    //     paddingHorizontal: 20,
-    // },
 });

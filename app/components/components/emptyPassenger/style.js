@@ -23,11 +23,8 @@ export default StyleSheet.create({
     },
 
     plus: {
-        // width:32,
-        // height: 32,
         fontSize: 32,
         color: '#00b1e8',
-        // borderWidth: 1,
         textAlign: 'center',
         textAlignVertical: 'center',
     },
@@ -41,7 +38,7 @@ export default StyleSheet.create({
         fontSize: 11,
     },
 
-    editButtonContainer: {
+    arrowButtonContainer: {
         height: 30,
         alignItems: 'center',
         justifyContent: 'center',

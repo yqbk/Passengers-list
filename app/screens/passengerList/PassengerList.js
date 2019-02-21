@@ -34,6 +34,7 @@ class PassengerList extends Component {
                 avatarImage={avatarImage}
                 onPress={() => navigation.navigate('AddPassenger', { passengersIndex: passengersIndex })}
                 key={passengersIndex}
+                passengersIndex={passengersIndex}
             />
         );
     };
