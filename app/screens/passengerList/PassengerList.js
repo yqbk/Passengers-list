@@ -7,39 +7,44 @@ import EmptyPassenger from '../../components/components/emptyPassenger/EmptyPass
 
 import { getTravellerRequest } from '../../actions/travellerActions';
 import { connect } from 'react-redux';
+import passengers from '../../reducers/passengers';
 
 const avatarImage = require('./doge.png');
 
+const mockedAvatars = [
+    require('../../../test_images/avatars/johnny.png'),
+    require('../../../test_images/avatars/dinosaur.png'),
+    require('../../../test_images/avatars/bald_guy.png'),
+];
+
 class PassengerList extends Component {
     componentDidMount() {
-        console.log('1. component did mount');
-
         this.props.getTravellerRequest();
-        console.log('2. action dispatched');
     }
 
     renderLoader = () => <Text>Loading...</Text>;
 
-    renderContent = () => {
-        const { navigation } = this.props;
-        
-        return (
-            <View>
-                <Text style={styles.header}>Main Traveller (this must be you, account holder)</Text>
+    renderAdditionalTraveller = passengersIndex => {
+        const { navigation, passengers } = this.props;
 
-                <Passenger avatarImage={avatarImage} data={this.props.traveller}/>
-
-                <Text style={styles.header}>Additional travellers</Text>
-
-                <EmptyPassenger avatarImage={avatarImage} onPress={() => navigation.navigate('AddPassenger')} />
-                <EmptyPassenger avatarImage={avatarImage} onPress={() => navigation.navigate('AddPassenger')} />
-                <EmptyPassenger avatarImage={avatarImage} onPress={() => navigation.navigate('AddPassenger')} />
-            </View>
+        return passengers[passengersIndex] ? (
+            <Passenger avatarImage={mockedAvatars[passengersIndex]} data={passengers[passengersIndex]} key={passengersIndex} />
+        ) : (
+            <EmptyPassenger avatarImage={avatarImage} onPress={() => navigation.navigate('AddPassenger')} key={passengersIndex} />
         );
     };
 
+    renderContent = () => (
+        <View>
+            <Text style={styles.header}>Main Traveller (this must be you, account holder)</Text>
+            <Passenger avatarImage={avatarImage} data={this.props.traveller} />
+
+            <Text style={styles.header}>Additional travellers</Text>
+            {[...Array(3).keys()].map(passengersIndex => this.renderAdditionalTraveller(passengersIndex))}
+        </View>
+    );
+
     render() {
-        console.log('render: loading', this.props.loading);
         return (
             <View style={{ flex: 1 }}>
                 <StatusBar translucent={false} barStyle="light-content" />
@@ -49,42 +54,17 @@ class PassengerList extends Component {
         );
     }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//       onAddTodo: todo => {
-//         dispatch(addTodo(toto));
-//       }
-//     };
-//   };
-
-//   export default connect(
-//     null,
-//     mapDispatchToProps
-//   )(NewTodo);
-
 const mapStateToPros = state => ({
-    // calendarChoices: calendarChoices(state),
-    // selectedCalendarId: selectedCalendarId(state),
     traveller: state.traveller.traveller,
     loading: state.traveller.loading,
+    passengers: state.passengers.passengers,
 });
 
 const mapDispatchToProps = {
     getTravellerRequest,
 };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onGetTravellerRequest: () => {
-//             dispatch(getTravellerRequest());
-//         },
-//     };
-// };
-
 export default connect(
     mapStateToPros,
     mapDispatchToProps,
 )(PassengerList);
-
-// export default PassengerList;

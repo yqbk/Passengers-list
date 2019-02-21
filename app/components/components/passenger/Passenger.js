@@ -3,7 +3,7 @@ import { View, Image, Text, TouchableOpacity } from 'react-native';
 import styles from './style';
 
 const Passenger = ({ avatarImage, data }) => {
-    console.log('data = ', data)
+    // console.log('data = ', data)
     return (
         <View style={styles.passengerContainer}>
             <View style={styles.avatar}>

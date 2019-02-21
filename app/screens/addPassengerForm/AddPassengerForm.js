@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Passenger from '../../components/components/passenger/Passenger';
 import EmptyPassenger from '../../components/components/emptyPassenger/EmptyPassanger';
 import { Text, StatusBar, View, FlatList, ScrollView, TextInput } from 'react-native';
+import { addPassenger } from '../../actions/passengersActions';
 
 import styles from './style';
 import TravellerToChoose from '../../components/components/travellerToChoose/TravellerToChoose';
 import NavigationButton from '../../components/components/navigationButton/NavigationButton';
 
-// const avatarImage = require('../../../test_images/avatars/alien.png');
-// const avatarImage = require('../../../test_images/avatars/black_guy.png');
-
 const mockedData = [
-    { name: 'Timothy D.', avatarImage: require('../../../test_images/avatars/johnny.png'), passportId: '123' },
-    { name: 'Josep A.', avatarImage: require('../../../test_images/avatars/dinosaur.png'), passportId: '456' },
-    { name: 'Philippe S.', avatarImage: require('../../../test_images/avatars/bald_guy.png'), passportId: '567' },
-    { name: 'Nicklas H.', avatarImage: require('../../../test_images/avatars/black_guy.png'), passportId: '890' },
+    { title: 'Mr', firstName: 'Timothy D.', avatarImage: require('../../../test_images/avatars/johnny.png'), passportId: '123' },
+    { title: 'Mr', firstName: 'Josep A.', avatarImage: require('../../../test_images/avatars/dinosaur.png'), passportId: '456' },
+    { title: 'Mr', firstName: 'Philippe S.', avatarImage: require('../../../test_images/avatars/bald_guy.png'), passportId: '567' },
+    { title: 'Mr', firstName: 'Nicklas H.', avatarImage: require('../../../test_images/avatars/black_guy.png'), passportId: '890' },
 ];
 
 class AddPassengerForm extends Component {
@@ -25,13 +24,19 @@ class AddPassengerForm extends Component {
             title: '',
             firstName: '',
             lastName: '',
-            birthDate: '',
+            dateOfBirth: '',
             passportId: '',
             nationality: '',
         };
     }
 
     _keyExtractor = (item, index) => item.passportId;
+
+    handleAddPassenger = passenger => {
+        this.props.addPassenger(passenger);
+
+        this.props.navigation.goBack();
+    };
 
     render() {
         const { navigation } = this.props;
@@ -49,7 +54,7 @@ class AddPassengerForm extends Component {
                     <View style={styles.topNavigation}>
                         <NavigationButton text={'◀'} onPress={() => navigation.goBack()} />
                         <Text style={styles.navigationHeader}>ENTER TRAVELLER</Text>
-                        <NavigationButton text={'Done'} />
+                        <NavigationButton text={'Done'} onPress={() => this.handleAddPassenger(this.state)} />
                     </View>
 
                     <Text style={styles.headerWhite}>Choose from friends, or add new traveller</Text>
@@ -57,10 +62,9 @@ class AddPassengerForm extends Component {
                         horizontal={true}
                         keyExtractor={this._keyExtractor}
                         data={mockedData}
-                        // data={[{ key: 'a' }, { key: 'b' }]}
                         renderItem={({ item }) => {
-                            console.log(item);
-                            return <TravellerToChoose passenger={item} avatarImage={item.avatarImage} onPress={() => navigation.goBack()} />;
+                            // console.log('0 :', item);
+                            return <TravellerToChoose passenger={item} avatarImage={item.avatarImage} onPress={() => this.handleAddPassenger(item)} />;
                         }}
                     />
                 </View>
@@ -88,8 +92,8 @@ class AddPassengerForm extends Component {
                     />
                     <TextInput
                         style={styles.textInput}
-                        onChangeText={birthDate => this.setState({ birthDate })}
-                        value={this.state.birthDate}
+                        onChangeText={dateOfBirth => this.setState({ dateOfBirth })}
+                        value={this.state.dateOfBirth}
                         placeholder={'Date of Birth'}
                     />
                     <TextInput
@@ -110,4 +114,11 @@ class AddPassengerForm extends Component {
     }
 }
 
-export default AddPassengerForm;
+const mapDispatchToProps = {
+    addPassenger,
+};
+
+export default connect(
+    null,
+    mapDispatchToProps,
+)(AddPassengerForm);

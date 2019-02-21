@@ -9,13 +9,15 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case GET_TRAVELLER: {
-            console.log('-> GET_TRAVELLER_ACTION here')
             return { ...state, loading: action.payload };
         }
+
         case GET_TRAVELLER_SUCCESS:
             return { ...state, traveller: action.payload, loading: action.loading };
+
         case GET_TRAVELLER_FAILURE:
             return { ...state, errorMessage: action.payload, loading: action.loading };
+
         default:
             return state;
     }
