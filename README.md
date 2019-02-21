@@ -7,11 +7,6 @@
 5. You can add pre-defined travellers or create a new one. 
 
 
-
-# React Native technical test
-
-The object of this test is to create a passengers list for a flights provider company. the user will be able to add all the passengers that are going to travel together.
-
 ## Getting Started
 
 Clone this repository in your local machine.
@@ -19,7 +14,6 @@ Clone this repository in your local machine.
 ### Prerequisites
 
 make sure you have _yarn_ installed in your machine
-
 ```
 npm install -g yarn
 ```
@@ -27,13 +21,11 @@ npm install -g yarn
 ### Installing
 
 Use yarn to install all the dependencies (from the project folder)
-
 ```
 yarn
 ```
 
 Start the launcher
-
 ```
 yarn start
 ```
