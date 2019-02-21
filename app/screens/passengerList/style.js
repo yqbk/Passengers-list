@@ -6,4 +6,10 @@ export default StyleSheet.create({
         fontSize: 12,
         paddingVertical: 10,
     },
+
+    mainScreen: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: 'white',
+    },
 });

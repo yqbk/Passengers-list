@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation';
 
 import PassengerList from '../screens/passengerList/PassengerList';
 import AddPassengerForm from '../screens/addPassengerForm/AddPassengerForm';
-import NavigationButton from '../components/components/navigationButton/NavigationButton';
+import NavigationButton from '../components/navigationButton/NavigationButton';
 import { styles } from './style';
 
 export default createStackNavigator(

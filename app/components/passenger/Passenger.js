@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import styles from './style';
 
-const defaultAvatarImage = require('../../../../test_images/avatars/alien.png');
+const defaultAvatarImage = require('../../mock/avatars/alien.png');
 const editText = 'Edit';
 
 const Passenger = ({ avatarImage, data }) => (

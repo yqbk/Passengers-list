@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Passenger from '../../components/components/passenger/Passenger';
+import Passenger from '../../components/passenger/Passenger';
 import { Text, StatusBar, View, FlatList, ScrollView, TextInput } from 'react-native';
 import { addPassenger } from '../../actions/passengersActions';
 
 import styles from './style';
-import TravellerToChoose from '../../components/components/travellerToChoose/TravellerToChoose';
-import NavigationButton from '../../components/components/navigationButton/NavigationButton';
+import TravellerToChoose from '../../components/travellerToChoose/TravellerToChoose';
+import NavigationButton from '../../components/navigationButton/NavigationButton';
 
 const mockedData = [
     {
@@ -14,7 +14,7 @@ const mockedData = [
         firstName: 'Timothy',
         lastName: 'D.',
         dateOfBirth: '1999-01-01',
-        avatarImage: require('../../../test_images/avatars/johnny.png'),
+        avatarImage: require('../../mock/avatars/johnny.png'),
         passportId: '123',
     },
     {
@@ -22,7 +22,7 @@ const mockedData = [
         firstName: 'Josep',
         lastName: 'A.',
         dateOfBirth: '1999-01-01',
-        avatarImage: require('../../../test_images/avatars/dinosaur.png'),
+        avatarImage: require('../../mock/avatars/dinosaur.png'),
         passportId: '456',
     },
     {
@@ -30,7 +30,7 @@ const mockedData = [
         firstName: 'Philippe',
         lastName: 'S.',
         dateOfBirth: '1999-01-01',
-        avatarImage: require('../../../test_images/avatars/bald_guy.png'),
+        avatarImage: require('../../mock/avatars/bald_guy.png'),
         passportId: '567',
     },
     {
@@ -38,7 +38,7 @@ const mockedData = [
         firstName: 'Nicklas',
         lastName: 'H.',
         dateOfBirth: '1999-01-01',
-        avatarImage: require('../../../test_images/avatars/black_guy.png'),
+        avatarImage: require('../../mock/avatars/black_guy.png'),
         passportId: '890',
     },
 ];

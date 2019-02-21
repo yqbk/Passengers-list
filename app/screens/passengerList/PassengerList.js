@@ -1,47 +1,48 @@
 import React, { Component } from 'react';
-import Passenger from '../../components/components/passenger/Passenger';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Text, StatusBar, View } from 'react-native';
 
-import styles from './style';
-import EmptyPassenger from '../../components/components/emptyPassenger/EmptyPassanger';
-
+import Passenger from '../../components/passenger/Passenger';
+import EmptyPassenger from '../../components/emptyPassenger/EmptyPassanger';
 import { getTravellerRequest } from '../../services/traveller';
-import { connect } from 'react-redux';
 import passengers from '../../reducers/passengers';
 
-const mockedAvatars = [
-    require('../../../test_images/avatars/johnny.png'),
-    require('../../../test_images/avatars/dinosaur.png'),
-    require('../../../test_images/avatars/bald_guy.png'),
-];
+import styles from './style';
+
+const mockedAvatars = [require('../../mock/avatars/johnny.png'), require('../../mock/avatars/dinosaur.png'), require('../../mock/avatars/bald_guy.png')];
 
 class PassengerList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.loadingText = 'Loading...';
+        this.mainTravellerHeaderText = 'Main Traveller (this must be you, account holder)';
+        this.additionalTravellersHeaderText = 'Additional travellers';
+    }
+
     componentDidMount() {
         this.props.getTravellerRequest();
     }
 
-    renderLoader = () => <Text>Loading...</Text>;
+    renderLoader = () => <Text>{this.loadingText}</Text>;
 
-    renderAdditionalTraveller = passengersIndex => {
+    renderAdditionalTraveller = index => {
         const { navigation, passengers } = this.props;
 
-        return passengers[passengersIndex] ? (
-            <Passenger avatarImage={passengers[passengersIndex].avatarImage} data={passengers[passengersIndex]} key={passengersIndex} />
+        return passengers[index] ? (
+            <Passenger avatarImage={passengers[index].avatarImage} data={passengers[index]} key={index} />
         ) : (
-            <EmptyPassenger
-                onPress={() => navigation.navigate('AddPassenger', { passengersIndex: passengersIndex })}
-                key={passengersIndex}
-                passengersIndex={passengersIndex}
-            />
+            <EmptyPassenger onPress={() => navigation.navigate('AddPassenger', { passengersIndex: index })} key={index} passengersIndex={index} />
         );
     };
 
     renderContent = () => (
         <View>
-            <Text style={styles.header}>Main Traveller (this must be you, account holder)</Text>
+            <Text style={styles.header}>{this.mainTravellerHeaderText}</Text>
             <Passenger avatarImage={mockedAvatars[0]} data={this.props.traveller} />
 
-            <Text style={styles.header}>Additional travellers</Text>
+            <Text style={styles.header}>{this.additionalTravellersHeaderText}</Text>
             {[...Array(3).keys()].map(passengersIndex => this.renderAdditionalTraveller(passengersIndex))}
         </View>
     );
@@ -49,13 +50,20 @@ class PassengerList extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <StatusBar translucent={false} barStyle="light-content" />
-
-                <View style={{ flex: 1, padding: 20, backgroundColor: 'white' }}>{this.props.loading ? this.renderLoader() : this.renderContent()}</View>
+                <StatusBar barStyle="light-content" />
+                <View style={styles.mainScreen}>{this.props.loading ? this.renderLoader() : this.renderContent()}</View>
             </View>
         );
     }
 }
+
+PassengerList.propTypes = {
+    traveller: PropTypes.object,
+    loading: PropTypes.bool.isRequired,
+    passengers: PropTypes.array,
+    getTravellerRequest: PropTypes.func.isRequired,
+};
+
 const mapStateToPros = state => ({
     traveller: state.traveller.traveller,
     loading: state.traveller.loading,
