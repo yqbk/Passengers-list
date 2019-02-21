@@ -7,10 +7,9 @@ import Passenger from '../../components/passenger/Passenger';
 import EmptyPassenger from '../../components/emptyPassenger/EmptyPassanger';
 import { getTravellerRequest } from '../../services/traveller';
 import passengers from '../../reducers/passengers';
+import { mockedAvatars } from '../../mock/mockExports';
 
 import styles from './style';
-
-const mockedAvatars = [require('../../mock/avatars/johnny.png'), require('../../mock/avatars/dinosaur.png'), require('../../mock/avatars/bald_guy.png')];
 
 class PassengerList extends Component {
     constructor(props) {
@@ -33,7 +32,11 @@ class PassengerList extends Component {
         return passengers[index] ? (
             <Passenger avatarImage={passengers[index].avatarImage} data={passengers[index]} key={index} />
         ) : (
-            <EmptyPassenger onPress={() => navigation.navigate('AddPassenger', { passengersIndex: index })} key={index} passengersIndex={index} />
+            <EmptyPassenger
+                onPress={() => navigation.navigate('AddPassenger', { passengersIndex: index })}
+                key={index}
+                passengersIndex={index}
+            />
         );
     };
 
