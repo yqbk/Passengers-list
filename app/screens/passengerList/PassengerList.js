@@ -49,7 +49,7 @@ class PassengerList extends Component {
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={styles.containerWrapper}>
                 <StatusBar barStyle="light-content" />
                 <View style={styles.mainScreen}>{this.props.loading ? this.renderLoader() : this.renderContent()}</View>
             </View>
