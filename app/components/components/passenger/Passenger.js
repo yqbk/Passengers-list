@@ -9,7 +9,7 @@ const editText = 'Edit';
 const Passenger = ({ avatarImage, data }) => (
     <View style={styles.passengerContainer}>
         <View style={styles.avatar}>
-            <Image source={avatarImage || defaultAvatarImage} style={styles.avatarImage} />
+            <Image source={avatarImage} style={styles.avatarImage} />
         </View>
 
         <View style={styles.passengerDetails}>
@@ -24,8 +24,12 @@ const Passenger = ({ avatarImage, data }) => (
 );
 
 Passenger.propTypes = {
-    avatarImage: PropTypes.number.isRequired,
+    avatarImage: PropTypes.number,
     data: PropTypes.object.isRequired,
+};
+
+Passenger.defaultProps = {
+    avatarImage: defaultAvatarImage,
 };
 
 export default Passenger;

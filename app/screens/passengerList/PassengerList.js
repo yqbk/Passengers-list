@@ -5,7 +5,7 @@ import { Text, StatusBar, View } from 'react-native';
 import styles from './style';
 import EmptyPassenger from '../../components/components/emptyPassenger/EmptyPassanger';
 
-import { getTravellerRequest } from '../../actions/travellerActions';
+import { getTravellerRequest } from '../../services/traveller';
 import { connect } from 'react-redux';
 import passengers from '../../reducers/passengers';
 

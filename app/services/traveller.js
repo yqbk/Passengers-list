@@ -3,16 +3,16 @@ import { getTraveller, getTravellerSuccess, getTravellerFailure } from '../actio
 
 const API = 'https://functionapp20180527095701.azurewebsites.net/api/GetUserTravellerInfo';
 
-export const getTravellerRequest = () => {
-    return dispatch => {
-        console.log('dispatch axios')
+export function getTravellerRequest() {
+    return function action(dispatch) {
         dispatch(getTraveller(true));
-        axios
-            .get(API)
-            .then(res => {
-                console.log('api request', res)
-                dispatch(getTravellerSuccess(res));
-            })
-            .catch(err => dispatch(getTravellerFailure(err)));
+
+        const request = axios({
+            method: 'GET',
+            url: API,
+            headers: [],
+        });
+
+        return request.then(response => dispatch(getTravellerSuccess(response.data)), err => dispatch(getTravellerFailure(err)));
     };
-};
+}
