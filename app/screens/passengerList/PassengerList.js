@@ -6,10 +6,11 @@ import { Text, StatusBar, View } from 'react-native';
 import Passenger from '../../components/passenger/Passenger';
 import EmptyPassenger from '../../components/emptyPassenger/EmptyPassanger';
 import { getTravellerRequest } from '../../services/traveller';
-import passengers from '../../reducers/passengers';
+import passengers from '../../reducers/passengersReducer';
 import { mockedAvatars } from '../../mock/mockExports';
 
 import styles from './style';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class PassengerList extends Component {
     constructor(props) {
@@ -52,10 +53,10 @@ class PassengerList extends Component {
 
     render() {
         return (
-            <View style={styles.containerWrapper}>
+            <ScrollView style={styles.containerWrapper}>
                 <StatusBar barStyle="light-content" />
                 <View style={styles.mainScreen}>{this.props.loading ? this.renderLoader() : this.renderContent()}</View>
-            </View>
+            </ScrollView>
         );
     }
 }

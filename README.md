@@ -1,3 +1,13 @@
+# My solution
+
+1. I fulfilled all the task requirements.
+2. The basic functionality is working.
+3. I use random mocked avatars as Josep advised.
+4. I tried to keep structure of a bigger project.
+5. You can add pre-defined travellers or create a new one. 
+
+
+
 # React Native technical test
 
 The object of this test is to create a passengers list for a flights provider company. the user will be able to add all the passengers that are going to travel together.
@@ -52,3 +62,5 @@ yarn start
 ![passenger list full](<https://github.com/Awaymo/react-native-technical-test/blob/master/test%20images/screens/small/Passenger%20List%20Full.png>)
 
 ![passenger entry form](<https://github.com/Awaymo/react-native-technical-test/blob/master/test%20images/screens/small/Passenger%20List%20Add%20Traveller.png>)
+
+

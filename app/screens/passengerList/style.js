@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     containerWrapper: {
         flex: 1,
+        backgroundColor: 'white',
     },
 
     mainScreen: {
