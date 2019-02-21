@@ -11,13 +11,10 @@ export default (state = initialState, action) => {
             console.log(action);
             return {
                 ...state,
-                passengers: state.passengers.reduce((acc, curr, index) => {
-                    if (index === action.payload.passengerIndex) {
-                        return [...acc, action.payload.passenger];
-                    } else {
-                        return [...acc, curr];
-                    }
-                }, []),
+                passengers: state.passengers.reduce(
+                    (acc, curr, index) => (index === action.payload.passengerIndex ? [...acc, action.payload.passenger] : [...acc, curr]),
+                    [],
+                ),
             };
         }
 
