@@ -5,7 +5,7 @@ import styles from './style';
 
 const emptyPassengerText = index => `Enter Adult ${index + 1} information`;
 
-const EmptyPassenger = ({ avatarImage, onPress, passengersIndex }) => (
+const EmptyPassenger = ({ onPress, passengersIndex }) => (
     <TouchableOpacity style={styles.passengerContainer} onPress={onPress}>
         <View style={styles.avatar}>
             <Text style={styles.plus}> + </Text>
@@ -22,7 +22,6 @@ const EmptyPassenger = ({ avatarImage, onPress, passengersIndex }) => (
 );
 
 EmptyPassenger.propTypes = {
-    avatarImage: PropTypes.number.isRequired,
     onPress: PropTypes.func.isRequired,
     passengersIndex: PropTypes.number.isRequired,
 };

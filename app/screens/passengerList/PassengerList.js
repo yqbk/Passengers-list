@@ -9,8 +9,6 @@ import { getTravellerRequest } from '../../services/traveller';
 import { connect } from 'react-redux';
 import passengers from '../../reducers/passengers';
 
-const avatarImage = require('./doge.png');
-
 const mockedAvatars = [
     require('../../../test_images/avatars/johnny.png'),
     require('../../../test_images/avatars/dinosaur.png'),
@@ -31,7 +29,6 @@ class PassengerList extends Component {
             <Passenger avatarImage={passengers[passengersIndex].avatarImage} data={passengers[passengersIndex]} key={passengersIndex} />
         ) : (
             <EmptyPassenger
-                avatarImage={avatarImage}
                 onPress={() => navigation.navigate('AddPassenger', { passengersIndex: passengersIndex })}
                 key={passengersIndex}
                 passengersIndex={passengersIndex}
@@ -42,7 +39,7 @@ class PassengerList extends Component {
     renderContent = () => (
         <View>
             <Text style={styles.header}>Main Traveller (this must be you, account holder)</Text>
-            <Passenger avatarImage={avatarImage} data={this.props.traveller} />
+            <Passenger avatarImage={mockedAvatars[0]} data={this.props.traveller} />
 
             <Text style={styles.header}>Additional travellers</Text>
             {[...Array(3).keys()].map(passengersIndex => this.renderAdditionalTraveller(passengersIndex))}
