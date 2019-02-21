@@ -19,19 +19,8 @@ export default createStackNavigator(
 
         AddPassenger: {
             screen: AddPassengerForm,
-            navigationOptions: props => {
-                const { navigation } = props;
-                return {
-                    header: null
-                    // headerTitle: 'ENTER TRAVELLER',
-                    // headerTitleStyle: styles.headerTitleStyle,
-                    // headerStyle: styles.redHeaderStyle,
-
-                    // // headerBackTitleStyle: styles.headerTitleStyle,
-
-                    // headerLeft: <NavigationButton text="<" onPress={() => navigation.goBack()} />,
-                    // headerRight: <NavigationButton text="Done" onPress={() => console.log('back')} />,
-                };
+            navigationOptions: {
+                header: null,
             },
         },
     },

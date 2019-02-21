@@ -9,15 +9,4 @@ export const styles = StyleSheet.create({
     headerStyle: {
         backgroundColor: '#566ada',
     },
-
-    redHeaderStyle: {
-        backgroundColor: '#ff5243',
-
-        shadowColor : '#ff5243',
-        shadowOpacity: 0,
-        shadowOffset: {
-        height: 0,
-        },
-        shadowRadius: 0,
-    },
 });
